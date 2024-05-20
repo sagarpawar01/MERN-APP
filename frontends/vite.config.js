@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server : {
     proxy : {
-      "/api/" : "https://mern-app-1-e7mz.onrender.com",
-      "/uploads/" : "https://mern-app-1-e7mz.onrender.com",
+      "/api/" : "https://e-mern-app.onrender.com/",
+      "/uploads/" : "https://e-mern-app.onrender.com/",
     }
   }
 })
