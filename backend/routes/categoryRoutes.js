@@ -7,5 +7,4 @@ router.route("/categories").get(listCategory)
 router.route('/').post(authenticate, authorizeAdmin, createCategory)
 router.route('/:categoryId').put(authenticate, authorizeAdmin, updateCategory).delete(authenticate, authorizeAdmin, removeCategory).get(readCategory)
 
-
 export default router

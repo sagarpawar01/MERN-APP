@@ -44,7 +44,7 @@ const Profile = () => {
   }
 
   return (
-    <div className="container mx-auto p-4 mt-[10rem]">
+    <div className="container mx-auto p-4 mt-[5rem]">
     <div className="flex justify-center align-center md:flex md:space-x-4">
       <div className="md:w-1/3">
         <h2 className="text-2xl font-semibold mb-4">Update Profile</h2>
@@ -54,7 +54,7 @@ const Profile = () => {
             <input
               type="text"
               placeholder="Enter name"
-              className="form-input p-4 rounded-sm w-full"
+              className="form-input p-4 rounded-sm w-full border border-white"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
@@ -65,7 +65,7 @@ const Profile = () => {
             <input
               type="email"
               placeholder="Enter email"
-              className="form-input p-4 rounded-sm w-full"
+              className="form-input p-4 rounded-sm w-full border border-white"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -76,7 +76,7 @@ const Profile = () => {
             <input
               type="password"
               placeholder="Enter password"
-              className="form-input p-4 rounded-sm w-full"
+              className="form-input p-4 rounded-sm w-full border border-white"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -87,7 +87,7 @@ const Profile = () => {
             <input
               type="password"
               placeholder="Confirm password"
-              className="form-input p-4 rounded-sm w-full"
+              className="form-input p-4 rounded-sm w-full border border-white"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />

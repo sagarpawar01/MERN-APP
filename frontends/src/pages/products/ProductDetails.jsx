@@ -58,7 +58,7 @@ const ProductDetails = () => {
       <div>
         <Link
           to="/"
-          className="text-white font-semibold hover:underline ml-[10rem]"
+          className="text-white font-semibold hover:underline"
         >
           Go Back
         </Link>
@@ -72,32 +72,31 @@ const ProductDetails = () => {
         </Message>
       ) : (
         <>
-          <div className="flex flex-wrap relative items-between mt-[2rem] ml-[10rem]">
-            <div>
+          <div className="flex flex-wrap items-between mt-[2rem]">
+            <div className="relative max-w-[30rem] max-h-[30rem] min-w-[15rem] min-h-[15rem] bg-[#1c1b1b] flex justify-center items-center mr-[2rem]">
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full xl:w-[30rem] lg:w-[25rem] md:w-[20rem] sm:w-[15rem] mr-[2rem]"
+                className=""
               />
-
               <HeartIcon product={product} />
             </div>
 
             <div className="flex flex-col justify-between">
               <h2 className="text-2xl font-semibold">{product.name}</h2>
-              <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
+              <p className="my-4 w-[15rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
                 {product.description}
               </p>
 
               <p className="text-5xl my-4 font-extrabold">$ {product.price}</p>
 
-              <div className="flex items-center justify-between w-[20rem]">
+              <div className="flex flex-col sm:flex-row justify-between w-[18rem]">
                 <div className="one">
                   <h1 className="flex items-center mb-6">
                     <FaStore className="mr-2 text-white" /> Brand:
                     {product.brand}
                   </h1>
-                  <h1 className="flex items-center mb-6 w-[20rem]">
+                  <h1 className="flex items-center mb-6 w-[18rem]">
                     <FaClock className="mr-2 text-white" /> Added:
                     {moment(product.createAt).fromNow()}
                   </h1>
@@ -122,14 +121,14 @@ const ProductDetails = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between flex-wrap">
+              <div className="flex flex-wrap sm:justify-between flex-col sm:flex-row">
                 <Ratings
                   value={product.ratings}
                   text={`${product.numReviews} reviews`}
                 />
 
                 {product.countInStock > 0 && (
-                  <div>
+                  <div className="mt-3 sm:mt-0">
                     <select
                       value={qty}
                       onChange={(e) => setQty(e.target.value)}
@@ -156,7 +155,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <div className="mt-[5rem] container flex flex-wrap items-start justify-between ml-[10rem]">
+            <div className="mt-[5rem] container flex flex-wrap items-start justify-between">
               <ProductTabs
                 loadingProductReview={loadingProductReview}
                 userInfo={userInfo}

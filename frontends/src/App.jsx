@@ -9,7 +9,7 @@ function App() {
     <>
      <ToastContainer />
       <Navigation />
-      <main className="py-3">
+      <main className="py-3 ml-[2.5rem] sm:ml-[4rem]">
         <Outlet />
       </main>
     </>

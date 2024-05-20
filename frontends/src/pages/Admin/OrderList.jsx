@@ -17,7 +17,8 @@ const OrderList = () => {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <table className="container mx-auto">
+        <div className='overflow-x-auto w-full flex scroll-smooth transition-all duration-500 ease'>
+          <table className="container mx-auto">
           <AdminMenu />
 
           <thead className="w-full border">
@@ -86,6 +87,7 @@ const OrderList = () => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </>
   )

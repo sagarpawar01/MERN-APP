@@ -103,42 +103,44 @@ const ProductUpdate = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="flex flex-col md:flex-row justify-center">
+      <div className="container sm:mx-[0]">
+        <div className="flex flex-col flex-wrap md:flex-row justify-center">
           <AdminMenu />
-          <div className="md:w-3/4 p-3">
-            <div className="h-12">Update / Delete Product</div>
+          <div className="">
+            <div className="h-12 text-2xl mb-8 font-bold">Update / Delete Product</div>
 
+            <div className="flex flex-col justify-center sm:items-center">
             {image && (
-              <div className="text-center">
+              <div className="max-w-[14rem] max-h-[14rem] min-w-[14rem] min-h-[14rem] bg-[#1c1b1b] flex justify-center items-center">
                 <img
                   src={image}
                   alt="product"
-                  className="block mx-auto w-full h-[40%]"
+                  className="block mx-auto"
                 />
               </div>
             )}
 
             <div className="mb-3">
-              <label className="text-white  py-2 px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
+              <label className="text-white px-2 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
                 {image ? image.name : "Upload image"}
                 <input
                   type="file"
                   name="image"
                   accept="image/*"
                   onChange={uploadFileHandler}
-                  className="text-white"
+                  className="text-white md:w-[100%] w-[15rem]"
                 />
               </label>
             </div>
+            </div>
 
-            <div className="p-3">
-              <div className="flex flex-wrap">
+            <div className="">
+              <div className="flex flex-wrap flex-col md:flex-row justify-between">
                 <div className="one">
                   <label htmlFor="name">Name</label> <br />
                   <input
                     type="text"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
@@ -147,21 +149,21 @@ const ProductUpdate = () => {
                 <div className="two">
                   <label htmlFor="name block">Price</label> <br />
                   <input
-                    type="number"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white "
+                    type="text"
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white md:ml-4 ml-0"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                   />
                 </div>
               </div>
 
-              <div className="flex flex-wrap">
+              <div className="flex flex-wrap flex-col md:flex-row justify-between">
                 <div>
                   <label htmlFor="name block">Quantity</label> <br />
                   <input
-                    type="number"
+                    type="text"
                     min="1"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
                   />
@@ -170,7 +172,7 @@ const ProductUpdate = () => {
                   <label htmlFor="name block">Brand</label> <br />
                   <input
                     type="text"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white "
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white "
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
                   />
@@ -182,17 +184,17 @@ const ProductUpdate = () => {
               </label>
               <textarea
                 type="text"
-                className="p-2 mb-3 bg-[#101011]  border rounded-lg w-[95%] text-white"
+                className="p-2 mb-3 bg-[#101011]  border rounded-lg w-[15rem] md:w-[95%] text-white"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
 
-              <div className="flex justify-between">
+              <div className="flex flex-col md:flex-row justify-between">
                 <div>
                   <label htmlFor="name block">Count In Stock</label> <br />
                   <input
                     type="text"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white "
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white "
                     value={stock}
                     onChange={(e) => setStock(e.target.value)}
                   />
@@ -202,7 +204,7 @@ const ProductUpdate = () => {
                   <label htmlFor="">Category</label> <br />
                   <select
                     placeholder="Choose Category"
-                    className="p-4 mb-3 w-[25rem] border rounded-lg bg-[#101011] text-white mr-[5rem]"
+                    className="p-4 mb-3 w-[15rem] md:w-[25rem] border rounded-lg bg-[#101011] text-white"
                     onChange={(e) => setCategory(e.target.value)}
                   >
                     {categories?.map((c) => (
@@ -217,13 +219,13 @@ const ProductUpdate = () => {
               <div className="">
                 <button
                   onClick={handleUpdate}
-                  className="py-4 px-10 mt-5 rounded-lg text-lg font-bold  bg-green-600 mr-6"
+                  className="py-4 mt-5 rounded-lg text-lg font-bold bg-green-600 mr-0 sm:mr-6 w-[15rem] sm:w-[45%]"
                 >
                   Update
                 </button>
                 <button
                   onClick={handleDelete}
-                  className="py-4 px-10 mt-5 rounded-lg text-lg font-bold  bg-pink-600"
+                  className="py-4 mt-5 rounded-lg text-lg font-bold bg-pink-600 w-[15rem] sm:w-[45%]"
                 >
                   Delete
                 </button>

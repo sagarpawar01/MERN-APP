@@ -16,7 +16,8 @@ const UserOrders = () => {
       ) : error ? (
         <Message variant="danger">{error?.data?.error || error.error}</Message>
       ) : (
-        <table className="w-full">
+        <div className="overflow-x-auto w-full flex scroll-smooth transition-all duration-500 ease">
+          <table className="w-full">
           <thead>
             <tr>
               <td className="py-2">IMAGE</td>
@@ -77,6 +78,7 @@ const UserOrders = () => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   )

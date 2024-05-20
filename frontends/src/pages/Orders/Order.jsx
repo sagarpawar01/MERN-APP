@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import Messsage from "../../components/Message";
 import Loader from "../../components/Loader";
@@ -11,6 +11,7 @@ import {
   useGetPaypalClientIdQuery,
   usePayOrderMutation,
 } from "../../redux/api/orderApiSlice";
+import { clearCartItems } from "../../redux/features/cart/cartSlice";
 
 const Order = () => {
 
@@ -23,6 +24,8 @@ const Order = () => {
     const [{isPending}, paypalDispatch] = usePayPalScriptReducer()
 
     const {data: paypal, isLoading: loadingPayPal, error : errorPayPal} = useGetPaypalClientIdQuery()
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
       if(!errorPayPal && !loadingPayPal && paypal.clientId){
@@ -50,6 +53,7 @@ const Order = () => {
                 await payOrder({orderId, details})
                 refetch()
                 toast.success("Order is paid")
+                dispatch(clearCartItems())
             } catch (error) {
                 toast.error(error?.data?.message || error?.message)
             }
@@ -84,7 +88,7 @@ const Order = () => {
           {order.orderItems.length === 0 ? (
             <Messsage>Order is empty</Messsage>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto w-full flex scroll-smooth transition-all duration-500 ease">
               <table className="w-[80%]">
                 <thead className="border-b-2">
                   <tr>
@@ -125,7 +129,7 @@ const Order = () => {
         </div>
       </div>
 
-      <div className="md:w-1/3">
+      <div className="md:w-1/3 p-3">
         <div className="mt-5 border-gray-300 pb-4 mb-4">
           <h2 className="text-xl font-bold mb-2">Shipping</h2>
           <p className="mb-4 mt-4">

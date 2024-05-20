@@ -64,7 +64,7 @@ const ProductTabs = ({loadingProductReview, userInfo, submitHandler, rating, set
                     required
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
-                    className="p-2 border rounded-lg xl:w-[35rem] text-black"
+                    className="p-2 border rounded-lg xl:w-[35rem] text-black w-[80%]"
                   >
                     <option value="">Select</option>
                     <option value="1">Inferior</option>
@@ -86,7 +86,7 @@ const ProductTabs = ({loadingProductReview, userInfo, submitHandler, rating, set
                     required
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
-                    className="p-2 border rounded-lg xl:w-[35rem] text-black"
+                    className="p-2 border rounded-lg xl:w-[35rem] text-black w-[80%]"
                   ></textarea>
                 </div>
                 <button
@@ -115,7 +115,7 @@ const ProductTabs = ({loadingProductReview, userInfo, submitHandler, rating, set
               {product.reviews.map((review) => (
                 <div
                   key={review._id}
-                  className="bg-[#1A1A1A] p-4 rounded-lg xl:ml-[2rem] sm:ml-[0rem] xl:w-[35rem] sm:w-[24rem] mb-5"
+                  className="bg-[#1A1A1A] p-4 rounded-lg xl:ml-[2rem] sm:ml-[0rem] w-[15rem] xl:w-[35rem] sm:w-[24rem] mb-5"
                 >
                   <div className="flex justify-between">
                     <strong className="text-[#B0B0B0]">{review.name}</strong>

@@ -67,23 +67,23 @@ const ProductList = () => {
 
   return (
     <div className="container sm:mx-[0]">
-      <div className="flex flex-col md:flex-row justify-center">
+      <div className="flex flex-col flex-wrap md:flex-row justify-center">
         <AdminMenu />
-        <div className="md:w-3/4 p-3">
-          <div className="h-12">Create Product</div>
+        <div className="">
+          <div className="h-12 text-2xl mb-8 font-bold">Create Product</div>
 
           {imageUrl && (
             <div className="text-center mb-5">
               <img
                 src={imageUrl}
                 alt="product"
-                className="block mx-auto max-h-[200px]"
+                className="block mx-auto max-h-[250px]"
               />
             </div>
           )}
 
           <div className="mb-3">
-            <label className="border text-white px-4 block w-full text-center rounded-lg cursor-pointer font-bold py-11">
+            <label className="border text-white px-2 block text-center rounded-lg cursor-pointer font-bold py-11">
               {image ? image.name : "Upload Image"}
 
               <input
@@ -91,47 +91,47 @@ const ProductList = () => {
                 name="image"
                 accept="image/*"
                 onChange={uploadFileHandler}
-                className={!image ? "hidden" : "text-white"}
+                className={`${!image ? "hidden" : "text-white"} md:w-[100%] w-[15rem]`}
               />
             </label>
           </div>
 
-          <div className="p-3">
-            <div className="flex flex-wrap">
+          <div className="">
+            <div className="flex flex-wrap flex-col md:flex-row justify-between">
               <div className="one">
                 <label htmlFor="name">Name</label> <br />
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem]"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="two ml-10 ">
+              <div className="two">
                 <label htmlFor="name block">Price</label> <br />
                 <input
-                  type="number"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  type="text"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem] md:ml-4 ml-0"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap flex-col md:flex-row justify-between">
               <div className="one">
                 <label htmlFor="name block">Quantity</label> <br />
                 <input
-                  type="number"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  type="text"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem]"
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div>
-              <div className="two ml-10 ">
+              <div className="two">
                 <label htmlFor="name block">Brand</label> <br />
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem]"
                   value={brand}
                   onChange={(e) => setBrand(e.target.value)}
                 />
@@ -143,17 +143,17 @@ const ProductList = () => {
             </label>
             <textarea
               type="text"
-              className="p-2 mb-3 bg-[#101011] border rounded-lg w-[95%] text-white"
+              className="p-2 mb-3 bg-[#101011] border rounded-lg w-[15rem] md:w-[95%] text-white"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
 
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row justify-between">
               <div>
                 <label htmlFor="name block">Count In Stock</label> <br />
                 <input
                   type="text"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem]"
                   value={stock}
                   onChange={(e) => setStock(e.target.value)}
                 />
@@ -163,7 +163,7 @@ const ProductList = () => {
                 <label htmlFor="">Category</label> <br />
                 <select
                   placeholder="Choose Category"
-                  className="p-4 mb-3 w-[26rem] border rounded-lg bg-[#101011] text-white"
+                  className="p-4 mb-3 border rounded-lg bg-[#101011] text-white w-[15rem] md:w-[25rem]"
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   {categories?.map((c) => (

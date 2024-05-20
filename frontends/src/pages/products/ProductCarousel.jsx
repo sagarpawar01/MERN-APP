@@ -28,7 +28,7 @@ const ProductCarousel = () => {
     }
 
   return (
-    <div className="mb-4 lg:block xl:block md:block w-[35rem]">
+    <div className="mb-4 lg:block xl:block md:block md:w-[35rem] sm:w-[16rem] flex justify-center items-center">
       {isLoading ? null : error ? (
         <Message variant="danger">
           {error?.data?.message || error.error}
@@ -53,12 +53,13 @@ const ProductCarousel = () => {
               countInStock,
             }) => (
               <div key={_id}>
+                <div className="md:max-w-[35rem] md:max-h-[30rem] md:min-w-[35rem] md:min-h-[30rem] sm:max-w-[16rem] sm:max-h-[16rem] sm:min-w-[16rem] sm:min-h-[16rem] bg-[#1c1b1b] flex justify-center items-center">
                 <img
                   src={image}
                   alt={name}
-                  className="w-full rounded-lg object-cover h-[20rem]"
+                  className="rounded-lg md:max-h-[30rem]"
                 />
-
+                </div>
                 <div className="mt-4 flex justify-between">
                   <div className="one flex">
                     <h2 className="mr-2">{name}</h2>

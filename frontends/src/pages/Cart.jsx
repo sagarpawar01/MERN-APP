@@ -26,19 +26,19 @@ const Cart = () => {
 
   return (
     <>
-    <div className="container flex justify-around items-start wrap mx-auto mt-8">
+    <div className="container flex items-start wrap mt-8">
       {cartItems.length === 0 ? (
         <div>
           Your cart is empty <Link to="/shop">Go To Shop</Link>
         </div>
       ) : (
         <>
-          <div className="flex flex-col w-[80%]">
-            <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
+          <div className="flex flex-col md:w-[70%] sm:w-[100%] overflow-x-auto w-full scroll-smooth transition-all duration-500 ease">
+            <h1 className="text-2xl font-semibold mb-8">Shopping Cart</h1>
 
             {cartItems.map((item) => (
-              <div key={item._id} className="flex items-enter mb-[1rem] pb-2">
-                <div className="w-[5rem] h-[5rem]">
+              <div key={item._id} className="flex items-center mb-[1rem] pb-2">
+                <div className="max-w-[5rem] max-h-[5rem] min-w-[5rem] min-h-[5rem] bg-[#1c1b1b] flex justify-center items-center">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -46,7 +46,7 @@ const Cart = () => {
                   />
                 </div>
 
-                <div className="flex-1 ml-4">
+                <div className="flex-1 ml-4 flex flex-col sm:flex-row justify-around items-center">
                   <Link to={`/product/${item._id}`} className="text-pink-500">
                     {item.name}
                   </Link>
@@ -57,9 +57,9 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <div className="w-24">
+                <div className="w-20">
                   <select
-                    className="w-full p-1 border rounded text-black"
+                    className="w-[70%] sm:w-full p-1 ml-2 border rounded text-black"
                     value={item.qty}
                     onChange={(e) =>
                       addToCartHandler(item, Number(e.target.value))
@@ -75,7 +75,7 @@ const Cart = () => {
 
                 <div>
                   <button
-                    className="text-red-500 mr-[5rem]"
+                    className="text-red-500"
                     onClick={() => removeFromCartHandler(item._id)}
                   >
                     <FaTrash className="ml-[1rem] mt-[.5rem]" />
@@ -84,8 +84,8 @@ const Cart = () => {
               </div>
             ))}
 
-            <div className="mt-8 w-[40rem]">
-              <div className="p-4 rounded-lg">
+            <div className="mt-4">
+              <div className="p-2 rounded-lg flex flex-col sm:flex-row justify-between items-center">
                 <h2 className="text-xl font-semibold mb-2">
                   Items ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
                 </h2>
@@ -98,7 +98,7 @@ const Cart = () => {
                 </div>
 
                 <button
-                  className="bg-pink-500 mt-4 py-2 px-4 rounded-full text-lg w-full"
+                  className="mt-2 sm:mt-0 bg-pink-500 py-2 px-4 rounded-full text-lg"
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}
                 >

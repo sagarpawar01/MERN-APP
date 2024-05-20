@@ -4,17 +4,17 @@ import HeartIcon from './HeartIcon'
 
 const SmallProducts = ({product}) => {
   return (
-    <div className="ml-[2rem] p-3">
-      <div className="relative">
+    <div className="p-3">
+      <div className="relative max-w-[12rem] max-h-[12rem] min-w-[12rem] min-h-[12rem] bg-[#1c1b1b] flex justify-center items-center">
         <img
           src={product.image}
           alt={product.name}
-          className="w-[15rem] h-[10rem] h-auto rounded"
+          className="rounded w-full"
         />
         <HeartIcon product={product} />
       </div>
 
-      <div className="p-4">
+      <div className="py-4">
         <Link to={`/product/${product._id}`}>
           <h2 className="flex justify-between items-center">
             <div>{product.name}</div>

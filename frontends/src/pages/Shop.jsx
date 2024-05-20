@@ -71,16 +71,16 @@ const Shop = () => {
   return (
     <>
       <div className="container">
-        <div className="flex md:flex-row">
+        <div className="flex flex-col md:flex-row">
           <div className="bg-[#151515] p-3 mt-2 mb-2">
             <h2 className="h4 text-center py-2 bg-black rounded-full mb-2">
               Filter by Categories
             </h2>
 
-            <div className="p-5 w-[15rem]">
+            <div className="p-2 sm:p-5 w-[15rem]">
               {categories?.map((c) => (
                 <div key={c._id} className="mb-2">
-                  <div className="flex ietms-center mr-4">
+                  <div className="flex ietms-center mr-0 sm:mr-4">
                     <input
                       type="checkbox"
                       id="red-checkbox"
@@ -103,10 +103,10 @@ const Shop = () => {
               Filter by Brands
             </h2>
 
-            <div className="p-5">
+            <div className="p-2 sm:p-5">
               {uniqueBrands?.map((brand) => (
                 <>
-                  <div className="flex items-enter mr-4 mb-5">
+                  <div className="flex items-enter mr-0 sm:mr-4 mb-5">
                     <input
                       type="radio"
                       id={brand}
@@ -130,7 +130,7 @@ const Shop = () => {
               Filer by Price
             </h2>
 
-            <div className="p-5 w-[15rem]">
+            <div className="p-2 sm:p-5 w-[15rem]">
               <input
                 type="text"
                 placeholder="Enter Price"
@@ -140,7 +140,7 @@ const Shop = () => {
               />
             </div>
 
-            <div className="p-5 pt-0">
+            <div className="p-2 sm:p-5 pt-0">
               <button
                 className="w-full border my-4"
                 onClick={() => window.location.reload()}
@@ -152,12 +152,12 @@ const Shop = () => {
 
           <div className="p-3">
             <h2 className="h4 text-center mb-2">{products?.length} Products</h2>
-            <div className="flex flex-wrap">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
               {products?.length === 0 ? (
                 <Loader />
               ) : (
                 products?.map((p) => (
-                  <div className="p-3" key={p._id}>
+                  <div className="p-2 sm:p-3" key={p._id}>
                     <ProductCard p={p} />
                   </div>
                 ))

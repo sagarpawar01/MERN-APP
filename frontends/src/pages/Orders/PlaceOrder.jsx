@@ -35,7 +35,6 @@ const PlaceOrder = () => {
                 taxPrice : cart.taxPrice,
                 totalPrice : cart.totalPrice
             }).unwrap()
-            dispatch(clearCartItems())
             navigate(`/order/${res._id}`)
         } catch (error) {
             toast.error(error)
@@ -50,7 +49,7 @@ const PlaceOrder = () => {
         {cart.cartItems.length === 0 ? (
           <Message>Your cart is empty</Message>
         ) : (
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto w-full flex scroll-smooth transition-all duration-500 ease">
             <table className="w-full border-collapse">
               <thead>
                 <tr>
@@ -88,9 +87,9 @@ const PlaceOrder = () => {
           </div>
         )}
 
-        <div className="mt-8">
+        <div className="mt-8 p-4">
           <h2 className="text-2xl font-semibold mb-5">Order Summary</h2>
-          <div className="flex justify-between flex-wrap p-8 bg-[#181818]">
+          <div className="flex justify-between flex-wrap p-2 sm:p-8 bg-[#181818]">
             <ul className="text-lg">
               <li>
                 <span className="font-semibold mb-4">Items:</span> $

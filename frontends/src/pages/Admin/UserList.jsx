@@ -51,7 +51,7 @@ const UserList = () => {
     }
 
   return (
-    <div className="p-4">
+    <div className="">
       <h1 className="text-2xl font-semibold mb-4">Users</h1>
       {isLoading ? (
         <Loader />
@@ -62,7 +62,8 @@ const UserList = () => {
       ) : (
         <div className="flex flex-col md:flex-row">
         <AdminMenu />
-          <table className="w-full md:w-4/5 mx-auto">
+        <div className='overflow-x-auto w-full flex scroll-smooth transition-all duration-500 ease'>
+        <table className="w-full mx-auto">
             <thead>
               <tr>
                 <th className="px-4 py-2 text-left">ID</th>
@@ -157,6 +158,7 @@ const UserList = () => {
               ))}
             </tbody>
           </table>
+        </div>
         </div>
       )}
     </div>
